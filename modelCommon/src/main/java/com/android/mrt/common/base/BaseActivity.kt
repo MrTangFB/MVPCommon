@@ -17,7 +17,11 @@ abstract class BaseActivity : Activity() {
      * 初始化数据标志
      * 如需每次返回界面重新加载，则在界面隐藏时设置标志位为true
      */
-    protected var mFirstCreate = true
+    private var mFirstCreate = true
+
+    fun reloading() {
+        mFirstCreate = false
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -21,12 +21,20 @@ abstract class BaseFragment : Fragment() {
      * 初始化数据标志
      * 如需每次返回界面重新加载，则在界面隐藏时设置标志位为true
      */
-    protected var mFirstCreate = true
+    private var mFirstCreate = true
+
+    fun reloading() {
+        mFirstCreate = false
+    }
 
     /**
-     * 跟布局对象
+     * 根布局对象
      */
-    protected lateinit var mRootView: View
+    private lateinit var mRootView: View
+
+    fun getRootView(): View {
+        return mRootView
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         mRootView = inflater.inflate(mContentViewRes, null)

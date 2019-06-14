@@ -1,4 +1,4 @@
-package com.android.mrt.mvp.contract
+package com.android.mrt.mvp.kotlin.contract
 
 import com.android.mrt.common.interfaces.ResultCallBack
 

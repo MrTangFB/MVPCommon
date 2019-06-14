@@ -6,17 +6,22 @@ import android.util.ArrayMap
 /**
  * Created by Mr.T on 2018/3/17.
  */
-abstract class BaseMvpPresenter<V>(protected var mContext: Context?) {
+abstract class BaseMvpPresenter<V> {
 
-    /**
-     * 保存所有Model的Map
-     */
-    private var mModelMap: ArrayMap<String, BaseMvpModel>? = ArrayMap()
+    private var mContext: Context? = null
+
+    fun getContext(): Context? {
+        return mContext
+    }
 
     /**
      * MVP模式中持有View对象
      */
-    protected var mView: V? = null
+    private var mView: V? = null
+
+    fun getView(): V? {
+        return mView
+    }
 
     /**
      * 此方法直接获取Model，自动生成管理
@@ -34,6 +39,18 @@ abstract class BaseMvpPresenter<V>(protected var mContext: Context?) {
     }
 
     /**********************************************************************************************/
+
+    /**
+     * 保存所有Model的Map
+     */
+    private var mModelMap: ArrayMap<String, BaseMvpModel>? = ArrayMap()
+
+    /**
+     * 勿手动调用
+     */
+    fun onCreate(context: Context?) {
+        mContext = context
+    }
 
     /**
      * 勿手动调用

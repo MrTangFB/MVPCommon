@@ -7,7 +7,13 @@ import android.content.Context
  */
 abstract class BaseMvpModel {
 
-    protected var mContext: Context? = null
+    private var mContext: Context? = null
+
+    fun getContext(): Context? {
+        return mContext
+    }
+
+    /**********************************************************************************************/
 
     /**
      * 勿手动调用
